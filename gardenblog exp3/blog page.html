@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Blooms & Ferns</title>
+
+    <style>
+
+        body {
+            background: #bbed83;
+            color: #234d20;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            background: #afcd27;
+            padding: 25px;
+            text-align: center;
+            border-bottom: 4px solid #dce990;
+        }
+
+        h1 {
+            background: #f6fd73;
+            color: #1f4f12;
+            text-align: center;
+            padding: 15px;
+            font-size: 48px;
+            border-radius: 12px;
+            margin: 10px auto;
+            width: 80%;
+        }
+
+        h2 {
+            color: #044922;
+            border-left: 6px solid #6aaf4b;
+            padding-left: 10px;
+        }
+
+        h3 {
+            color: #356b2b;
+        }
+
+        p {
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        .quicklinks {
+            background: #f5fbe9;
+            text-align: center;
+            padding: 15px;
+            border-bottom: 2px solid #568b40;
+        }
+
+        .quicklinks h3 {
+            margin: 5px;
+        }
+
+        .quicklinks a {
+            display: inline-block;
+            background: #5b9e45;
+            color: white;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        marquee {
+            background: #a8cb37;
+            color: #173d12;
+            padding: 9px;
+            font-size: 17px;
+            border-top: 2px solid #386b2b;
+            border-bottom: 2px solid #386b2b;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .blog-section {
+            background: #f7fce9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 12px;
+            border: 1px solid #9acb7d;
+        }
+
+        .welcome {
+            background: #f7fce9;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 12px;
+        }
+
+        .welcome-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .welcome-table td {
+            padding: 15px;
+            vertical-align: middle;
+        }
+
+        .welcome-image {
+            width: 55%;
+            text-align: center;
+        }
+
+        .welcome-image img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 12px;
+            border: 4px solid #4d8b3c;
+        }
+
+        .welcome-text {
+            width: 45%;
+        }
+
+        ul {
+            line-height: 1.9;
+            font-size: 16px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        .plant-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .plant-table th {
+            background: #70b957;
+            color: white;
+            padding: 12px;
+            border: 1px solid #386b2b;
+        }
+
+        .plant-table td {
+            background: #f5fbe9;
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #386b2b;
+        }
+
+
+        .gallery {
+            text-align: center;
+            background: #f7fce9;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .gallery img {
+            width: 220px;
+            height: 150px;
+            object-fit: cover;
+            margin: 7px;
+            border-radius: 10px;
+            border: 3px solid #568b40;
+        }
+        .blog-links {
+            text-align: center;
+        }
+
+        .bloglink {
+            display: inline-block;
+            width: 200px;
+            background: #8ccf6f;
+            color: #173d12;
+            text-align: center;
+            padding: 12px;
+            margin: 8px;
+            border: 1px solid #386b2b;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .contact {
+            background: #d3edb9;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .contact a {
+            color: #075c25;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .top-button {
+            display: inline-block;
+            background: #386b2b;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer {
+            background: #386b2b;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        .footer p {
+            margin: 5px;
+            font-size: 14px;
+        }
+
+
+
+        @media (max-width: 768px) {
+
+            h1 {
+                font-size: 38px;
+                width: 90%;
+            }
+
+            .container {
+                width: 94%;
+            }
+
+            .welcome-table,
+            .welcome-table tr,
+            .welcome-table td {
+                display: block;
+                width: 100%;
+            }
+
+            .welcome-table td {
+                padding: 10px 0;
+            }
+
+            .welcome-image img {
+                width: 95%;
+            }
+
+            .gallery img {
+                width: 180px;
+                height: 125px;
+            }
+
+            .quicklinks a {
+                padding: 9px 16px;
+                font-size: 15px;
+            }
+
+        }
+
+        @media (max-width: 480px) {
+
+            h1 {
+                font-size: 28px;
+                width: 90%;
+                padding: 10px;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+
+            h3 {
+                font-size: 18px;
+            }
+
+            p {
+                font-size: 15px;
+            }
+
+            .container {
+                width: 94%;
+            }
+
+            .blog-section,
+            .welcome,
+            .gallery,
+            .contact {
+                padding: 15px;
+            }
+
+            .quicklinks a {
+                padding: 8px 12px;
+                margin: 3px;
+                font-size: 13px;
+            }
+
+            marquee {
+                font-size: 14px;
+            }
+
+            .plant-table {
+                font-size: 13px;
+            }
+
+            .plant-table th,
+            .plant-table td {
+                padding: 8px 4px;
+            }
+
+            .gallery img {
+                width: 135px;
+                height: 100px;
+                margin: 4px;
+            }
+
+            .bloglink {
+                width: 80%;
+                margin: 5px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body id="top">
+
+
+    <!-- HEADER -->
+
+    <div class="header">
+
+        <h1><i>Blooms & Ferns</i></h1>
+
+        <h3>Learn • Grow • Love</h3>
+
+        <p>
+            Creating a space to nurture your colourful palette of soilmates!
+        </p>
+
+    </div>
+
+
+    <!-- QUICK LINKS -->
+
+    <div class="quicklinks">
+
+        <h3>Quick Links</h3>
+
+        <a href="#about">About</a>
+
+        <a href="#plants">Plants</a>
+
+        <a href="#tips">Gardening Tips</a>
+
+        <a href="#contact">Contact</a>
+
+    </div>
+
+
+    <!-- MOVING MESSAGE -->
+
+    <marquee behavior="scroll" direction="left">
+
+        Welcome to Blooms & Ferns |
+        Gardening Tips |
+        Seasonal Flowers |
+        Organic Gardening |
+        Happy Planting
+
+    </marquee>
+
+
+    <!-- MAIN CONTENT -->
+
+    <div class="container">
+
+
+        <!-- WELCOME BLOG -->
+
+        <div class="welcome">
+
+            <table class="welcome-table">
+
+                <tr>
+
+                    <td class="welcome-image">
+
+                        <a href="https://www.gardenersworld.com" target="_blank">
+
+                            <img src="garden1.jpg">
+
+                        </a>
+
+                    </td>
+
+
+                    <td class="welcome-text">
+
+                        <h2> Welcome to Blooms & Ferns</h2>
+
+                        <p>
+
+                            At <b>Blooms & Ferns</b>, every garden tells a story.
+                            Whether you have a balcony garden or a large backyard,
+                            our blog helps you grow healthy plants with simple ideas.
+
+                        </p>
+
+                        <h3> Did You Know?</h3>
+
+                        <ul>
+
+                            <li>Plants improve air quality.</li>
+
+                            <li>Lavender attracts butterflies.</li>
+
+                            <li>Sunflowers follow the sunlight.</li>
+
+                            <li>Compost enriches the soil.</li>
+
+                            <li>Indoor plants reduce stress.</li>
+
+                        </ul>
+
+                    </td>
+
+                </tr>
+
+            </table>
+
+        </div>
+
+
+        <!-- ABOUT -->
+
+        <div class="blog-section">
+
+            <h2 id="about"> About the Blog</h2>
+
+            <p>
+
+                <b>Blooms & Ferns</b> is a gardening blog that inspires people
+                to create beautiful gardens using simple techniques and
+                eco-friendly practices.
+
+            </p>
+
+            <p>
+
+                From colourful flowers to refreshing green plants,
+                discover easy ideas to make your garden a peaceful
+                and beautiful place.
+
+            </p>
+
+        </div>
+
+
+        <!-- GARDENING TIPS -->
+
+        <div class="blog-section">
+
+            <h2 id="tips"> Quick Gardening Tips</h2>
+
+            <ul>
+
+                <li>Water plants early in the morning.</li>
+
+                <li>Use compost for healthy soil.</li>
+
+                <li>Prune plants regularly.</li>
+
+                <li>Choose seasonal flowers.</li>
+
+                <li>Give plants enough sunlight.</li>
+
+                <li>Remove dry leaves regularly.</li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- PLANTS -->
+
+        <div class="blog-section">
+
+            <h2 id="plants"> Popular Garden Plants</h2>
+
+            <table class="plant-table">
+
+                <tr>
+
+                    <th>Plants</th>
+
+                    <th>Growing Conditions</th>
+
+                    <th>Watering</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>Rose</td>
+
+                    <td>Full Sun</td>
+
+                    <td>Daily</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Fern</td>
+
+                    <td>Shade</td>
+
+                    <td>Every 2 Days</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Lavender</td>
+
+                    <td>Full Sun</td>
+
+                    <td>Twice a Week</td>
+
+                </tr>
+
+            </table>
+
+        </div>
+
+
+        <!-- GALLERY -->
+
+        <div class="gallery">
+
+            <h2> Garden Gallery</h2>
+
+            <marquee>
+
+                <img src="garden5.jpg">
+
+                <img src="garden4.jpg">
+
+                <img src="garden3.jpg">
+
+                <img src="garden2.jpg">
+
+                <img src="garden7.jpg">
+
+                <img src="garden6.jpg">
+
+                <img src="garden8.jpg">
+
+            </marquee>
+
+            <p>
+
+                Every garden tells a story. From vibrant flowers to lush
+                green foliage, discover ideas that transform your outdoor
+                space into a peaceful retreat.
+
+            </p>
+
+        </div>
+
+
+        <!-- OTHER BLOGS -->
+
+        <div class="blog-section blog-links">
+
+            <h2>Explore More Gardening Blogs</h2>
+
+            <a class="bloglink"
+               href="https://www.rhs.org.uk"
+               target="_blank">
+
+                Royal Horticultural Society
+
+            </a>
+
+            <a class="bloglink"
+               href="https://www.gardenersworld.com"
+               target="_blank">
+
+                Gardeners' World
+
+            </a>
+
+            <a class="bloglink"
+               href="https://www.almanac.com/gardening"
+               target="_blank">
+
+                Farmer's Almanac
+
+            </a>
+
+            <a class="bloglink"
+               href="https://www.gardendesign.com"
+               target="_blank">
+
+                Garden Design
+
+            </a>
+
+        </div>
+
+
+        <!-- CONTACT -->
+
+        <div class="contact">
+
+            <h2 id="contact"> Contact</h2>
+
+            <p>
+
+                Email:
+
+                <a href="mailto:bloomsandferns@gmail.com">
+
+                    bloomsandferns@gmail.com
+
+                </a>
+
+            </p>
+
+            <p>
+
+                Phone:
+
+                <a href="tel:+91987654256">
+
+                    +91 98765 4256
+
+                </a>
+
+            </p>
+
+        </div>
+
+
+        <p style="text-align:center;">
+
+            <a class="top-button" href="#top">
+
+                ⬆ Back to Top
+
+            </a>
+
+        </p>
+
+
+    </div>
+
+
+    <div class="footer">
+
+        <p>
+             Blooms & Ferns | Learn • Grow • Love
+        </p>
+
+    </div>
+
+
+</body>
+
+</html>
