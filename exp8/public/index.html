@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blooms & Ferns</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Blooms & Ferns</h1>
+    <p>Grow something beautiful every day.</p>
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#plants">My Plants</a>
+    <a href="#tasks">Garden Tasks</a>
+</nav>
+
+<main id="home">
+
+    <section class="welcome">
+        <h2>Welcome to Your Garden!</h2>
+        <p>Take care of your plants and watch your garden bloom.</p>
+    </section>
+
+    <section class="stats">
+        <div class="stat-card">
+            <h2 id="plantCount">0</h2>
+            <p>Total Plants</p>
+        </div>
+
+        <div class="stat-card">
+            <h2 id="taskCount">0</h2>
+            <p>Garden Tasks</p>
+        </div>
+    </section>
+
+    <section id="plants" class="section">
+        <h2>My Plants</h2>
+
+        <form id="plantForm">
+            <input type="text" id="plantName"
+                   placeholder="Enter plant name" required>
+
+            <input type="text" id="plantType"
+                   placeholder="Enter plant type" required>
+
+            <button type="submit">Add Plant</button>
+        </form>
+
+        <div id="plantList" class="list"></div>
+    </section>
+
+    <section id="tasks" class="section">
+        <h2>Garden Tasks</h2>
+
+        <form id="taskForm">
+            <input type="text" id="taskName"
+                   placeholder="Enter gardening task" required>
+
+            <button type="submit">Add Task</button>
+        </form>
+
+        <div id="taskList" class="list"></div>
+    </section>
+
+</main>
+
+<footer>
+    <p>Blooms & Ferns | Every plant tells a story.</p>
+</footer>
+
+<script>
+    const plantList = document.getElementById('plantList');
+    const taskList = document.getElementById('taskList');
+
+    // Display plants
+    async function loadPlants() {
+        const response = await fetch('/api/plants');
+        const plants = await response.json();
+
+        plantList.replaceChildren();
+
+        plants.forEach(plant => {
+            const card = document.createElement('div');
+            card.className = 'item-card';
+
+            const name = document.createElement('h3');
+            name.textContent = plant.name;
+
+            const type = document.createElement('p');
+            type.textContent = plant.type;
+
+            card.append(name, type);
+            plantList.appendChild(card);
+        });
+
+        document.getElementById('plantCount').textContent = plants.length;
+    }
+
+    // Add a new plant
+    document.getElementById('plantForm').addEventListener('submit',
+        async function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('plantName').value;
+            const type = document.getElementById('plantType').value;
+
+            const response = await fetch('/api/plants', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, type })
+            });
+
+            if (response.ok) {
+                this.reset();
+                loadPlants();
+            } else {
+                alert('Unable to add plant');
+            }
+        }
+    );
+
+    // Display tasks
+    async function loadTasks() {
+        const response = await fetch('/api/tasks');
+        const tasks = await response.json();
+
+        taskList.replaceChildren();
+
+        tasks.forEach(task => {
+            const card = document.createElement('div');
+            card.className = 'item-card';
+
+            const name = document.createElement('p');
+            name.textContent = task.name;
+
+            card.appendChild(name);
+            taskList.appendChild(card);
+        });
+
+        document.getElementById('taskCount').textContent = tasks.length;
+    }
+
+    // Add a new task
+    document.getElementById('taskForm').addEventListener('submit',
+        async function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('taskName').value;
+
+            const response = await fetch('/api/tasks', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name })
+            });
+
+            if (response.ok) {
+                this.reset();
+                loadTasks();
+            } else {
+                alert('Unable to add task');
+            }
+        }
+    );
+
+    // Load data when page opens
+    loadPlants();
+    loadTasks();
+</script>
+
+</body>
+</html>
